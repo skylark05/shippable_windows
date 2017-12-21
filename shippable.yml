@@ -14,4 +14,4 @@ jobs:
                 HELLO: world
           script:
             - Write-Output "Greetings from Windows on Shippable"
-            - if ( "$env:HELLO" -ne "world" ) { Write-Error "incorrect env" }
+            - screenfetch
