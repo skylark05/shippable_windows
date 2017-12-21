@@ -11,7 +11,7 @@ jobs:
           runtime:
             options:
               env:
-                "$env:HELLO": world
+                HELLO: world
           script:
             - Write-Output "Greetings from Windows on Shippable"
             - if ( "$env:HELLO" -ne "world" ) { Write-Error "incorrect env" }
