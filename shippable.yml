@@ -15,3 +15,6 @@ jobs:
           script:
             - Write-Output "Greetings from Windows on Shippable"
             - screenfetch
+            - shipctl retry docker foo
+            - shipctl retry docker ps
+            - shipctl get_resource_name foobar-1-2-3-4
