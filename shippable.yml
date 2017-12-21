@@ -1,0 +1,17 @@
+jobs:
+  - name: windows_job
+    type: runSh
+    runtime:
+      architecture: x86_64
+      os: WindowsServer_2016
+      container: false
+    steps:
+      - TASK:
+          name: hello_world
+          runtime:
+            options:
+              env:
+                "$env:HELLO": world
+          script:
+            - Write-Output "Greetings from Windows on Shippable"
+            - if ( "$env:HELLO" -ne "world" ) { Write-Error "incorrect env" }
