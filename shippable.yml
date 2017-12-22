@@ -1,3 +1,10 @@
+resources:
+  - name: myaws
+    type: cliConfig
+    integration: myaws
+    pointer:
+      region: us-east-1
+
 jobs:
   - name: windows_job
     type: runSh
@@ -6,6 +13,7 @@ jobs:
       os: WindowsServer_2016
       container: false
     steps:
+      - IN: myaws
       - TASK:
           name: hello_world
           runtime:
