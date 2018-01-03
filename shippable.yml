@@ -26,3 +26,4 @@ jobs:
             - shipctl retry docker foo
             - shipctl retry docker ps
             - shipctl get_resource_name foobar-1-2-3-4
+            - aws ec2 describe-instances
