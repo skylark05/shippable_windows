@@ -27,3 +27,20 @@ jobs:
             - shipctl retry docker ps
             - shipctl get_resource_name foobar-1-2-3-4
             - aws ec2 describe-instances
+  - name: windows_container_job
+    type: runSh
+    runtime:
+      architecture: x86_64
+      os: WindowsServer_2016
+      container: true
+    steps:
+      - TASK:
+          name: hello_container_world
+          runtime:
+            options:
+              imageName: "microsoft/windowsservercore"
+              imageTag: "10.0.14393.1884"
+              env:
+                HELLO: world
+          script:
+            - Write-Output "Greetings from Windows on Shippable"
