@@ -37,6 +37,7 @@ jobs:
             - aws ec2 describe-instances
             - '"versionName=master.$env:BUILD_NUMBER" | Out-File -Encoding utf8 -FilePath $env:JOB_STATE\img.env -NoNewLine'
       - OUT: img
+        overwrite: true
   - name: windows_container_job
     type: runSh
     runtime:
