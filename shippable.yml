@@ -4,6 +4,14 @@ resources:
     integration: myaws
     pointer:
       region: us-east-1
+  - name: img
+    type: image
+    integration: myDH
+    pointer:
+      sourceName: ragesh/busybox
+    seed:
+      versionName: master.1
+      
 
 jobs:
   - name: windows_job
@@ -27,6 +35,7 @@ jobs:
             - shipctl retry docker ps
             - shipctl get_resource_name foobar-1-2-3-4
             - aws ec2 describe-instances
+            - "versionName=master.$env:BUILD_NUMBER" | Out-File -Encoding utf8 -FilePath $env:JOB_STATE\img.env
   - name: windows_container_job
     type: runSh
     runtime:
