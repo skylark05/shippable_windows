@@ -17,7 +17,7 @@ jobs:
   - name: windows_job
     type: runSh
     runtime:
-      cluster: windows
+      cluster: custom__x86_64__WindowsServer_2016
       container: false
     steps:
       - IN: myaws
@@ -41,7 +41,7 @@ jobs:
   - name: windows_container_job
     type: runSh
     runtime:
-      cluster: windows
+      cluster: custom__x86_64__WindowsServer_2016
       container: true
     steps:
       - TASK:
