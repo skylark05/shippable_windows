@@ -1,4 +1,11 @@
 resources:
+  - name: pl_repo
+    type: gitRepo
+    integration: github
+    versionTemplate:
+      sourceName: skylark05/pipelines
+      branch: master
+      
   - name: myaws
     type: cliConfig
     integration: myaws
@@ -21,6 +28,7 @@ jobs:
       container: false
     steps:
       - IN: myaws
+      - IN: pl_repo
       - TASK:
           name: hello_world
           runtime:
