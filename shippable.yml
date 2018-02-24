@@ -37,13 +37,9 @@ jobs:
                 HELLO: world
           script:
             - Write-Output "Greetings from Windows on Shippable"
-            - screenfetch
-            - shipctl retry docker foo
-            - shipctl retry docker ps
-            - shipctl get_resource_name foobar-1-2-3-4
-            - aws ec2 describe-instances
             #- '"versionName=master.$env:BUILD_NUMBER" | Out-File -Encoding utf8 -FilePath $env:JOB_STATE\img.env -NoNewLine'
-            - shipctl post_resource_state "img" "versionName" "master.$env:BUILD_NUMBER"
+            #- shipctl post_resource_state "img" "versionName" "master.$env:BUILD_NUMBER"
+            - shipctl get_resource_version_key "pl_repo" "shaData"
       - OUT: img
         overwrite: true
   - name: windows_container_job
