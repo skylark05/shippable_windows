@@ -40,6 +40,7 @@ jobs:
             #- '"versionName=master.$env:BUILD_NUMBER" | Out-File -Encoding utf8 -FilePath $env:JOB_STATE\img.env -NoNewLine'
             #- shipctl post_resource_state "img" "versionName" "master.$env:BUILD_NUMBER"
             - shipctl get_resource_version_key "pl_repo" "shaData"
+            - start-sleep -m 2
       - OUT: img
         overwrite: true
   - name: windows_container_job
