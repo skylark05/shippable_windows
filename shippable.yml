@@ -23,6 +23,7 @@ resources:
 jobs:
   - name: windows_job
     type: runSh
+    allowPublicAccess: true
     runtime:
       nodePool: custom__x86_64__WindowsServer_2016
       container: false
