@@ -37,10 +37,10 @@ jobs:
                 HELLO: world
           script:
             - Write-Output "Greetings from Windows on Shippable"
-            #- '"versionName=master.$env:BUILD_NUMBER" | Out-File -Encoding utf8 -FilePath $env:JOB_STATE\img.env -NoNewLine'
-            #- shipctl post_resource_state "img" "versionName" "master.$env:BUILD_NUMBER"
-            - shipctl get_resource_version_key "pl_repo" "shaData"
+            - pushd $(shipctl get_resource_state pl_repo)
+            - git status
             - start-sleep -s 120
+            - popd
       - OUT: img
         overwrite: true
   - name: windows_container_job
