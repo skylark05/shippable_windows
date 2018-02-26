@@ -29,6 +29,8 @@ jobs:
     steps:
       - IN: myaws
       - IN: pl_repo
+      - IN: shippable_windows
+        switch: off
       - TASK:
           name: hello_world
           runtime:
