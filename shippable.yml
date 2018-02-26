@@ -41,7 +41,9 @@ jobs:
             - Write-Output "Greetings from Windows on Shippable"
             - pushd $(shipctl get_resource_state pl_repo)
             - git status
-            - start-sleep -s 120
+            - popd
+            - pushd $(shipctl get_resource_state shippable_windows_master)
+            - git status
             - popd
       - OUT: img
         overwrite: true
