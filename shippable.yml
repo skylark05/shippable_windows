@@ -1,3 +1,8 @@
+language: none
+build:
+  ci:
+    - echo "Hello World"
+
 resources:
   - name: pl_repo
     type: gitRepo
