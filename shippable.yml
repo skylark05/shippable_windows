@@ -28,6 +28,16 @@ resources:
       
 
 jobs:
+  - name: test_dynamic_win
+    type: runSh
+    allowPublicAccess: true
+    runtime:
+      container: false
+    steps:
+      - TASK:
+          name: hello_world
+          script:
+            - Write-Output "Hello"
   - name: windows_job
     type: runSh
     allowPublicAccess: true
