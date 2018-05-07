@@ -42,7 +42,7 @@ jobs:
     type: runSh
     allowPublicAccess: true
     runtime:
-      nodePool: custom__x86_64__WindowsServer_2016
+      nodePool: dynamic__x86_64__WindowsServer_2016__c4_large
       container: false
     steps:
       - IN: myaws
@@ -68,7 +68,7 @@ jobs:
   - name: windows_container_job
     type: runSh
     runtime:
-      nodePool: custom__x86_64__WindowsServer_2016
+      nodePool: dynamic__x86_64__WindowsServer_2016__c4_large
       container: true
     steps:
       - TASK:
