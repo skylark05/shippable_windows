@@ -6,25 +6,25 @@ build:
     - echo "Hello World"
 
 resources:
-  - name: pl_repo
-    type: gitRepo
-    integration: github
-    versionTemplate:
-      sourceName: skylark05/pipelines
-      branch: master
+  #- name: pl_repo
+  #  type: gitRepo
+  #  integration: github
+  #  versionTemplate:
+  #    sourceName: skylark05/pipelines
+  #    branch: master
       
-  - name: myaws
-    type: cliConfig
-    integration: myaws
-    pointer:
-      region: us-east-1
-  - name: img
-    type: image
-    integration: myDH
-    pointer:
-      sourceName: ragesh/busybox
-    seed:
-      versionName: master.1
+  #- name: myaws
+  #  type: cliConfig
+  #  integration: myaws
+  #  pointer:
+  #    region: us-east-1
+  #- name: img
+  #  type: image
+  #  integration: myDH
+  #  pointer:
+  #    sourceName: ragesh/busybox
+  #  seed:
+  #    versionName: master.1
       
 
 jobs:
@@ -45,10 +45,10 @@ jobs:
       nodePool: dynamic__x86_64__WindowsServer_2016__c4_large
       container: false
     steps:
-      - IN: myaws
-      - IN: pl_repo
-      - IN: shippable_windows_master
-        switch: off
+      #- IN: myaws
+      #- IN: pl_repo
+      #- IN: shippable_windows_master
+      #  switch: off
       - TASK:
           name: hello_world
           runtime:
@@ -57,12 +57,12 @@ jobs:
                 HELLO: world
           script:
             - Write-Output "Greetings from Windows on Shippable"
-            - pushd $(shipctl get_resource_state pl_repo)
-            - git status
-            - popd
-            - pushd $(shipctl get_resource_state shippable_windows_master)
-            - git status
-            - popd
+            #- pushd $(shipctl get_resource_state pl_repo)
+            #- git status
+            #- popd
+            #- pushd $(shipctl get_resource_state shippable_windows_master)
+            #- git status
+            #- popd
       - OUT: img
         overwrite: true
   - name: windows_container_job
