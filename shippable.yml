@@ -42,8 +42,8 @@ jobs:
     type: runSh
     allowPublicAccess: true
     runtime:
-      nodePool: dynamic__x86_64__WindowsServer_2016__c4_large
-      container: false
+      nodePool: custom__x86_64__WindowsServer_2016	
+      container: true
     steps:
       #- IN: myaws
       #- IN: pl_repo
